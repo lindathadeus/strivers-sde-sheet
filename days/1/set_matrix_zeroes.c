@@ -18,7 +18,6 @@
 ****************************************************************/
 
 #include <stdio.h>
-#include <stdlib.h>
 
 void printm(int M[3][3]) {
   printf("\n");
@@ -29,7 +28,7 @@ void printm(int M[3][3]) {
   }
 }
 
-int main(int argc, char *argv[]) {
+void main() {
   int M[3][3] = {{1, 0, 1}, {1, 0, 1}, {1, 0, 1}};
 
   printm(M);
@@ -48,6 +47,4 @@ int main(int argc, char *argv[]) {
       if (M[i][j] == -1) M[i][j] = 0;
 
   printm(M);
-
-  return 0;
 }
