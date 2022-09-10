@@ -21,6 +21,7 @@
 #include <stdlib.h>
 
 void printm(int M[3][3]) {
+  printf("\n");
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++)
       printf("%d   ", M[i][j]);
@@ -29,23 +30,18 @@ void printm(int M[3][3]) {
 }
 
 int main(int argc, char *argv[]) {
-  int M[3][3] = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
+  int M[3][3] = {{1, 0, 1}, {1, 0, 1}, {1, 0, 1}};
 
   printm(M);
 
-  for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 3; j++) {
-      if (M[i][j] == 0) {
-        for (int ii = 0; ii < 3; ii++) {
+  for (int i = 0; i < 3; i++)
+    for (int j = 0; j < 3; j++)
+      if (M[i][j] == 0)
+        for (int ii = 0; ii < 3; ii++)
           for (int jj = 0; jj < 3; jj++) {
-            M[i][jj] = -1;
-            M[ii][j] = -1;
+            if (M[i][jj] != 0) M[i][jj] = -1;
+            if (M[ii][j] != 0) M[ii][j] = -1;
           }
-        }
-      }
-    }
-  }
-  printf("\n");
 
   for (int i = 0; i < 3; i++)
     for (int j = 0; j < 3; j++)
